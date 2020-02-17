@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"golang.org/x/tour/tree"
 )
 
@@ -39,15 +37,4 @@ func Same(t1, t2 *tree.Tree) bool {
 
 	_, ok := <-ch2
 	return !ok
-}
-
-func main() {
-	ch := make(chan int, 10)
-	go Walk(tree.New(1), ch)
-	for e := range ch {
-		fmt.Println(e)
-	}
-
-	fmt.Println(Same(tree.New(1), tree.New(1)))
-	fmt.Println(Same(tree.New(1), tree.New(2)))
 }
